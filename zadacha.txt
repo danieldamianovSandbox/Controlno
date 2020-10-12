@@ -1,0 +1,61 @@
+using System;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] izvineni = new int[10];
+            int[] neizvineni = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"Enter absences of number {i + 1}: ");
+                Console.WriteLine("Izvineni: ");
+                izvineni[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Neizvineni: ");
+                neizvineni[i] = int.Parse(Console.ReadLine());
+            }
+
+            bool imaBezOtsastvia = false;
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (izvineni[i] == 0 && neizvineni[i] == 0)
+                {
+                    imaBezOtsastvia = true;
+                    break;
+                }
+            }
+
+            Console.WriteLine(imaBezOtsastvia ? "Ima Bez Otsastvia" : "Nqma bez otsastcia");
+
+            int broiBezNeizvineni = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (neizvineni[i] == 0)
+                {
+                    broiBezNeizvineni++;
+                }
+            }
+
+            Console.WriteLine($"Bez neizvinei : {broiBezNeizvineni}");
+
+            int[] sumOfAbs = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                sumOfAbs[i] = izvineni[i] + neizvineni[i];
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"{sumOfAbs[i]} ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
